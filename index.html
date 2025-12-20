@@ -63,16 +63,18 @@
             margin: 20px 0;
             color: var(--light-slate);
             text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            writing-mode: vertical-rl;
             transition: var(--transition);
+            display: block;
         }
 
         .side-nav a:hover {
             color: var(--green);
             transform: translateY(-3px);
+        }
+
+        .side-nav svg,
+        .side-email svg {
+            display: block;
         }
 
         /* Email Side */
@@ -98,11 +100,8 @@
             margin: 20px 0;
             color: var(--light-slate);
             text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            writing-mode: vertical-rl;
             transition: var(--transition);
+            display: block;
         }
 
         .side-email a:hover {
@@ -118,12 +117,19 @@
             background-color: rgba(10, 25, 47, 0.85);
             backdrop-filter: blur(10px);
             z-index: 11;
-            padding: 0 50px;
-            height: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 15px 50px;
             box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
         }
 
         .logo {
@@ -131,6 +137,31 @@
             color: var(--green);
             font-size: 24px;
             font-weight: bold;
+        }
+
+        .header-social {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .header-social a {
+            color: var(--lightest-slate);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .header-social a:hover {
+            color: var(--green);
+            transform: translateY(-2px);
+        }
+
+        .header-social svg {
+            display: block;
         }
 
         nav ul {
@@ -173,7 +204,32 @@
 
         /* Hero Section */
         .hero {
-            margin-top: 100px;
+            margin-top: 0;
+            padding-top: 50px;
+        }
+
+        /* Compact Safety Image Strip - No gap with Meet section */
+        .safety-strip {
+            width: 100%;
+            height: 300px;
+            background-image: url('safety-onsite.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative;
+            margin-top: 110px;
+            margin-bottom: 0;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .safety-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(10, 25, 47, 0.5), rgba(10, 25, 47, 0.65));
         }
 
         .hero h1 {
@@ -424,6 +480,45 @@
             border-color: var(--green);
         }
 
+        /* Professional Gallery */
+        #gallery {
+            margin-bottom: 100px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 40px -15px rgba(2, 12, 27, 0.9);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(30%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img {
+            filter: grayscale(0%);
+        }
+
         /* Skills */
         .skills-list {
             display: grid;
@@ -475,6 +570,16 @@
             margin-bottom: 50px;
         }
 
+        /* Social media icons hover effect */
+        .social-links a:hover {
+            color: var(--green) !important;
+            transform: translateY(-3px);
+        }
+
+        .social-links svg {
+            transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
         /* Footer */
         footer {
             padding: 20px;
@@ -507,6 +612,11 @@
                 grid-template-columns: repeat(2, minmax(140px, 200px));
             }
 
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
             nav ul {
                 gap: 20px;
             }
@@ -514,29 +624,97 @@
             nav a {
                 font-size: 12px;
             }
+
+            .header-social {
+                gap: 12px;
+                padding-right: 10px;
+            }
+
+            .header-social svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .hero {
+                margin-top: 0;
+                padding-top: 30px;
+            }
+
+            .safety-strip {
+                height: 180px;
+                margin-top: 120px;
+                margin-bottom: 0;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">SZ</div>
-        <nav>
-            <ul>
-                <li><a href="#about"><span>◆</span> About</a></li>
-                <li><a href="#experience"><span>●</span> Experience</a></li>
-                <li><a href="#certifications"><span>■</span> Certifications</a></li>
-                <li><a href="#contact"><span>▲</span> Contact</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <nav>
+                <ul>
+                    <li><a href="#about"><span>◆</span> About</a></li>
+                    <li><a href="#experience"><span>●</span> Experience</a></li>
+                    <li><a href="#certifications"><span>■</span> Certifications</a></li>
+                    <li><a href="#contact"><span>▲</span> Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-social">
+                <a href="https://www.linkedin.com/in/shanavaskj-095558234" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/z_i_a_d_e_h/" target="_blank" aria-label="Instagram" title="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/shanavasj.shanu" target="_blank" aria-label="Facebook" title="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="/cdn-cgi/l/email-protection#3a49525b545b4c5b495049525b544f7a5d575b535614595557" aria-label="Email" title="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </header>
 
     <div class="side-email">
-        <a href="/cdn-cgi/l/email-protection#27544f4649465146544d544f46495267404a464e4b0944484a"><span class="__cf_email__" data-cfemail="e6958e8788879087958c958e878893a6818b878f8ac885898b">[email&#160;protected]</span></a>
+        <a href="/cdn-cgi/l/email-protection#b7c4dfd6d9d6c1d6c4ddc4dfd6d9c2f7d0dad6dedb99d4d8da" aria-label="Email" title="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+        </a>
     </div>
 
     <div class="side-nav">
-        <a href="https://www.linkedin.com/in/shanavaskj-095558234" target="_blank">LinkedIn</a>
-        <a href="tel:+971555519216">Phone</a>
+        <a href="https://www.linkedin.com/in/shanavaskj-095558234" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/z_i_a_d_e_h/" target="_blank" aria-label="Instagram" title="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+        </a>
+        <a href="https://www.facebook.com/shanavasj.shanu" target="_blank" aria-label="Facebook" title="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Compact Safety Image - Full Width -->
+    <div class="safety-strip">
+        <div class="safety-overlay"></div>
     </div>
 
     <main class="container">
@@ -544,9 +722,9 @@
         <section class="hero">
             <h1>Meet</h1>
             <h2>Shanavas Ziadeh.</h2>
-            <h3>Guardian of safe workplaces.</h3>
+            <h3>Building safer work environments.</h3>
             <p>
-                A Health, Safety & Environment specialist who transforms risk into resilience. With 5 years of shaping safety culture across ADNOC operations and Dubai's real estate landscape, Shanavas doesn't just enforce compliance—he architects environments where people thrive without compromise.
+                A Health, Safety & Environment specialist who transforms risk into resilience. With 5 years of shaping safety culture across ADNOC operations and real estate safety and security operations, Shanavas doesn't just enforce compliance—he architects environments where people thrive without compromise.
             </p>
             <a href="#contact" class="cta-button">Connect With Shanavas</a>
         </section>
@@ -563,7 +741,10 @@
                         His approach transcends traditional safety management. Shanavas combines <strong>forensic incident investigation, predictive risk assessment, and crisis-ready emergency planning</strong> with a deep understanding of human psychology—recognizing that the safest workplaces are built on behavioral insight, not just regulations.
                     </p>
                     <p>
-                        Armed with a <strong>Bachelor's in Health and Safety Management, NEBOSH International Diploma,</strong> and certifications in psychological assessment, Shanavas bridges the gap between technical compliance and human-centered safety culture. His work spans high-stakes environments: industrial plants operating at capacity, sprawling real estate projects, and critical infrastructure where there's zero margin for error.
+                        A distinguishing strength lies in his <strong>excellence in HSE documentation and digital systems mastery</strong>. Throughout his career, Shanavas has specialized in creating comprehensive safety documentation, from incident reports and risk assessments to compliance records and emergency action plans. His advanced computer proficiency enables him to streamline documentation processes, implement digital HSE management systems, and maintain meticulous records that stand up to the most rigorous audits. This technical aptitude, combined with attention to detail, makes him exceptionally effective in both field operations and administrative excellence.
+                    </p>
+                    <p>
+                        Armed with a <strong>Bachelor's in Health and Safety Management, NEBOSH International Diploma,</strong> and certifications in psychological assessment, Shanavas bridges the gap between technical compliance and human-centered safety culture. His work spans high-stakes environments: industrial plants operating at capacity, real estate safety and security projects, and critical infrastructure where there's zero margin for error.
                     </p>
                     <p>Core expertise domains:</p>
                     <ul class="skills-list">
@@ -576,10 +757,13 @@
                         <li>Fire Systems Engineering</li>
                         <li>Compliance Intelligence</li>
                         <li>Safety Culture Transformation</li>
+                        <li>HSE Documentation Excellence</li>
+                        <li>Digital Systems Management</li>
+                        <li>Advanced Computer Proficiency</li>
                     </ul>
                 </div>
                 <div class="profile-pic-wrapper">
-                    <img src="profile-photo.jpg" alt="Shanavas Ziadeh" class="profile-pic">
+                    <img src="shanavas-ziadeh-passportsize.jpg" alt="Shanavas Ziadeh HSE Officer Dubai" class="profile-pic">
                 </div>
             </div>
         </section>
@@ -589,15 +773,15 @@
             <h2 class="section-title">Professional Experience</h2>
             <div class="experience-tabs">
                 <button class="tab-button active" onclick="showTab(0)">DGM Investments</button>
-                <button class="tab-button" onclick="showTab(1)">FGT Facilities</button>
-                <button class="tab-button" onclick="showTab(2)">Lafarge</button>
+                <button class="tab-button" onclick="showTab(1)">FGT Facilities Management</button>
+                <button class="tab-button" onclick="showTab(2)">Lafarge Holcim</button>
             </div>
 
             <div class="tab-content active">
                 <h3 class="job-title">HSE Officer <span>@ DGM Investments LLC</span></h3>
                 <p class="job-duration">January 2025 - Present</p>
                 <ul class="job-description">
-                    <li>Leading HSE initiatives for facilities management and real estate operations in Dubai</li>
+                    <li>Leading HSE initiatives for facilities management and real estate safety and security operations in Dubai</li>
                     <li>Ensuring compliance with Dubai Municipality and UAE safety regulations</li>
                     <li>Managing comprehensive HSE documentation and reporting systems</li>
                     <li>Conducting safety audits and implementing corrective actions</li>
@@ -620,13 +804,13 @@
             </div>
 
             <div class="tab-content">
-                <h3 class="job-title">HSE Officer <span>@ Lafarge Emirates Cement Plant</span></h3>
+                <h3 class="job-title">HSE Officer <span>@ Lafarge Holcim Cement Plant</span></h3>
                 <p class="job-duration">January 2022 - March 2022</p>
                 <ul class="job-description">
-                    <li>Managed HSE operations during critical plant shutdown project in Fujairah</li>
-                    <li>Coordinated safety protocols for maintenance and contractor activities</li>
+                    <li>Managed HSE operations during critical cement plant shutdown project in Fujairah</li>
+                    <li>Coordinated safety protocols for maintenance and contractor activities at the cement manufacturing facility</li>
                     <li>Ensured zero incidents during high-risk shutdown operations</li>
-                    <li>Implemented permit-to-work systems for hazardous activities</li>
+                    <li>Implemented permit-to-work systems for hazardous activities in industrial cement production environment</li>
                 </ul>
             </div>
         </section>
@@ -668,8 +852,27 @@
                     <p class="cert-org">Certified Professional</p>
                 </div>
                 <div class="cert-item">
-                    <h3 class="cert-title">BSc Health & Safety</h3>
+                    <h3 class="cert-title">Bachelors in Health & Safety Management System</h3>
                     <p class="cert-org">ALBEDO Technical Education</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Gallery -->
+        <section id="gallery">
+            <h2 class="section-title">Professional Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="shanavas-ziadeh-passportsize.jpg" alt="Shanavas Ziadeh HSE Officer Professional Headshot" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="shanavas-ziadeh-office.jpg" alt="Shanavas Ziadeh HSE Officer at Office Dubai" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="shanavas-ziadeh-car.jpg" alt="Shanavas Ziadeh Professional Photo Dubai" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="shanavas-ziadeh-palm.jpg" alt="Shanavas Ziadeh Dubai Skyline HSE Professional" class="gallery-img">
                 </div>
             </div>
         </section>
@@ -682,7 +885,30 @@
                 <p class="contact-text">
                     Shanavas is currently open to new HSE opportunities across Dubai and the UAE. Whether you need HSE consulting, safety compliance expertise, or want to discuss transforming your organization's safety culture, his inbox is always open for meaningful conversations.
                 </p>
-                <a href="mailto:shanavasjshanu@gmail.com" class="cta-button">Start a Conversation</a>
+                <a href="/cdn-cgi/l/email-protection#403328212e213621332a3328212e3500272d21292c6e232f2d" class="cta-button">Start a Conversation</a>
+                <div class="social-links" style="display: flex; justify-content: center; gap: 25px; margin-top: 40px;">
+                    <a href="https://www.linkedin.com/in/shanavaskj-095558234" target="_blank" aria-label="LinkedIn" title="LinkedIn" style="color: var(--light-slate); transition: var(--transition);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/z_i_a_d_e_h/" target="_blank" aria-label="Instagram" title="Instagram" style="color: var(--light-slate); transition: var(--transition);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/shanavasj.shanu" target="_blank" aria-label="Facebook" title="Facebook" style="color: var(--light-slate); transition: var(--transition);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="/cdn-cgi/l/email-protection#37445f5659564156445d445f56594277505a565e5b1954585a" aria-label="Email" title="Email" style="color: var(--light-slate); transition: var(--transition);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -693,6 +919,7 @@
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Tab switching function
         function showTab(index) {
             const buttons = document.querySelectorAll('.tab-button');
             const contents = document.querySelectorAll('.tab-content');
@@ -724,4 +951,4 @@
             });
         });
 
-        document.querySelec
+        document.querySele
